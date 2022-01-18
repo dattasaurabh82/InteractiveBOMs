@@ -46,12 +46,15 @@ jobs:
          JSON_PATH="BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
          OUTPUT_PATH="$pwd/VIEW/public/ThroughHoleSegmentVersion3_v154"
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
+         cd $OUTPUT_PATH
+         ls -l
+         cd ..
           
       - name: output_bom_view_html
         uses: actions/upload-artifact@v2
         with:
          name: output_bom_view_html
-         path: VIEW/public/ThroughHoleSegmentVersion3_v154
+         path: VIEW/public/ThroughHoleSegmentVersion3_v154/ibom.html
       
 #       - name: download output
 #         uses: actions/download-artifact@v2
