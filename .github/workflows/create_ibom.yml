@@ -45,6 +45,10 @@ jobs:
         run: git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
       
       - name: Create ibom.html
-        run: xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --help
+        run: |
+          CURRENTDIR=$(pwd)
+          echo $CURRENTDIR
+          mkdir tempPublic
+        #xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --help
       
       
