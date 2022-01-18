@@ -46,11 +46,17 @@ jobs:
       
       - name: Create ibom.html
         run: |
-          JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
-          echo $JSON_FILE
-          OUTPUT_DIR="$(pwd)/VIEW/public"
-          echo $OUTPUT_DIR
-          ARGS="--dark-mode --no-browser --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
-          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_FILE $OUTPUT_DIR  
+          HOME_DIR=$(pwd)
+          ls -l
+          JSON_DIR="$HOME_DIR/BOMS/ThroughHoleSegmentVersion3_v154"
+          cd $JSON_DIR
+          ls -l
+        # JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
+        # echo $JSON_FILE
+        # OUTPUT_DIR="$(pwd)/VIEW/public"
+        # cd $OUTPUT_DIR
+        # ls -l
+        # ARGS="--dark-mode --no-browser --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
+        # xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_FILE $OUTPUT_DIR  
       
       
