@@ -41,13 +41,9 @@ jobs:
         run: git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
           
       - name: Create ibom.html
-        run: |
-          ls -l
-          JSON_PATH="BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
-          ARGS="--layer-view FB"
-          mkdir output
-          OUTPUT_DIR="/home/runner/work/InteractiveBOMs/InteractiveBOMs/output"
-          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py ${{env.ARGS}} ${{env.JSON_PATH}} ${{env.OUTPUT_DIR}}
+        run:
+         mkdir output
+         xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser --layer-view FB $pwd/output 
           
       
       
