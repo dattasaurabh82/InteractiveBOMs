@@ -43,7 +43,11 @@ jobs:
       - name: Create ibom.html
         run: |
           ls -l
-          cat BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json
-#          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_FILE $OUTPUT_DIR  
+          JSON_PATH="BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
+          cat "$JSON_PATH"
+          ARGS="--layer-view FB"
+          mkdir output
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_PATH $(pwd)/output
+          
       
       
