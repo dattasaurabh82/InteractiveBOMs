@@ -18,8 +18,11 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # But move to root dir of repo and not "/home/runner/work/<repo_name>/<repo_name>"
       - uses: actions/checkout@v2
-      
+        with:
+         path: './'
+        
       - name: Update System and install sys necessities
         run: |
           sudo apt-get update -y
@@ -43,14 +46,9 @@ jobs:
           
       - name: Clone InteractiveHtmlBom creator
         run: git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
-      
-      # Move to root dir of repo and not "/home/runner/work/<repo_name>/<repo_name>"
-      - uses: actions/checkout@v2
-        with:
-          path: './'
           
       - name: Create ibom.html
-        run: 
+        run: |
          pwd
          ls
 #          JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
