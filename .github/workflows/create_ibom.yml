@@ -42,7 +42,10 @@ jobs:
          python -m pip install "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04/wxPython-4.1.1-cp38-cp38-linux_x86_64.whl"
           
       - name: Clone InteractiveHtmlBom creator
-        run: git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
+        run: |
+          echo $(pwd)
+          git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
+          echo $(pwd)
       
       - name: Create ibom.html
         run: |
