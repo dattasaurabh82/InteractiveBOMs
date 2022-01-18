@@ -3,32 +3,25 @@ name: Create BOM
 on:
   push:
     branches: [ main ]
-  # pull_request:
-  # branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
+# Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-
+# This workflow contains a single job called "build_iBOM"
 jobs:
-  # This workflow contains a single job called "build_iBOM"
   build_iBOM:
     name: create ibom on push
     runs-on: ubuntu-20.04
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # But move to root dir of repo and not "/home/runner/work/<repo_name>/<repo_name>"
+# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-       # with:
-       #  path: './'
         
       - name: Update System and install sys necessities
         run: |
           sudo apt-get update -y
           sudo apt-get install -y software-properties-common xvfb 
           sudo apt-get install -y libsdl2-2.0-0
-        # sudo apt-get install -y python-wxgtk2.8
       
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
@@ -49,16 +42,8 @@ jobs:
           
       - name: Create ibom.html
         run: |
-         pwd
-         ls
-       # cat BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json
-#          JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
-#          echo $JSON_FILE
-#          cat JSON_FILE
-#          OUTPUT_DIR="$(pwd)/VIEW/public"
-#          ls $OUTPUT_DIR
-        # ls -l
-        # ARGS="--dark-mode --no-browser --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
-        # xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_FILE $OUTPUT_DIR  
+          ls -l
+          cat BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json
+#          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_FILE $OUTPUT_DIR  
       
       
