@@ -26,12 +26,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Update System and install sys necesseties
+      - name: Update System and install sys necessities
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y software-properties-common xvfb git
+          sudo apt-get install -y software-properties-common xvfb 
+          sudo apt-get install -y libsdl2-2.0-0
+        # sudo apt-get install -y python-wxgtk2.8
       
-      # Runs a single command using the runners shell
       - name: Set up Python 3.10
         uses: actions/setup-python@v2
         with:
@@ -40,8 +41,14 @@ jobs:
       - name: Install python dependencies
         run: |
          python -m pip install --upgrade pip
+         python -m pip install --upgrade pip setuptools wheel
+         python -m pip install pyinstaller
+         python -m pip install pillow
          pip install jsonschema
-        
+       
+      - name: Install wxpython
+        run: pip install wxpython
+          
       - name: Clone InteractiveHtmlBom creator
         run: git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
          
