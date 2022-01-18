@@ -20,8 +20,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # But move to root dir of repo and not "/home/runner/work/<repo_name>/<repo_name>"
       - uses: actions/checkout@v2
-        with:
-         path: './'
+       # with:
+       #  path: './'
         
       - name: Update System and install sys necessities
         run: |
@@ -51,6 +51,7 @@ jobs:
         run: |
          pwd
          ls
+       # cat BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json
 #          JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
 #          echo $JSON_FILE
 #          cat JSON_FILE
