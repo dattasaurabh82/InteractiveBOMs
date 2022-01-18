@@ -46,7 +46,7 @@ jobs:
       
       - name: Create ibom.html
         run: |
-         JSON_FILE="BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
+         JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
          echo $JSON_FILE
          cat JSON_FILE
          OUTPUT_DIR="VIEW/public"
