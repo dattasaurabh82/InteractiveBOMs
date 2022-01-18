@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: bom_html
-         path: output/ibom.html
+         path: output
 
 
   deploy:
@@ -74,6 +74,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
           branch: gh-pages
+          folder: 
 
 
 #       - name: download output
