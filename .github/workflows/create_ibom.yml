@@ -48,7 +48,7 @@ jobs:
         run: |
           JSON_FILE="BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
           echo $JSON_FILE
-          OUTPUT_DIR="VIEW/public/test0"
+          OUTPUT_DIR="VIEW/public"
           echo $OUTPUT_DIR
           ARGS="--dark-mode --no-browser --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
           xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_FILE $OUTPUT_DIR  
