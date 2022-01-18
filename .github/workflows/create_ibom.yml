@@ -44,7 +44,8 @@ jobs:
         run: |
          ARGS="--layer-view FB --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
          JSON_PATH="*.json"
-         OUTPUT_PATH="$pwd"
+         mkdir output
+         OUTPUT_PATH="$pwd/output"
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
          cd $OUTPUT_PATH
          ls -l
@@ -54,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: output_bom_view_html
-         path: ibom.htnml
+         path: output/*.htnml
       
 #       - name: download output
 #         uses: actions/download-artifact@v2
