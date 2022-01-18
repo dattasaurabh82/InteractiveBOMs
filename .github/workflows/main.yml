@@ -31,4 +31,4 @@ jobs:
       - name: Rtest paths and contents
         run: |
          ls -la
-         sudo echo "test" > text
+         cat BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json
