@@ -31,4 +31,4 @@ jobs:
       - name: Rtest paths and contents
         run: |
          ls -la
-         echo "test" > text
+         sudo echo "test" > text
