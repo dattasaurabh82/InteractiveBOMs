@@ -71,7 +71,9 @@ jobs:
           name: bom_html
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: gh-pages
 
 
 #       - name: download output
