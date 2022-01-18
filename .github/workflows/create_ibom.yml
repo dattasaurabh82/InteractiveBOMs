@@ -45,11 +45,12 @@ jobs:
         run: git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
       
       - name: Create ibom.html
-        run: |
+        run: 
+         ls $(pwd)
          JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
          echo $JSON_FILE
          cat JSON_FILE
-         OUTPUT_DIR="VIEW/public"
+         OUTPUT_DIR="$(pwd)/VIEW/public"
          ls $OUTPUT_DIR
         # ls -l
         # ARGS="--dark-mode --no-browser --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
