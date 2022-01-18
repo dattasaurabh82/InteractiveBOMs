@@ -47,9 +47,9 @@ jobs:
          OUTPUT_PATH="$pwd/VIEW/public/ThroughHoleSegmentVersion3_v154"
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
           
-#       - name: upload output view dir
-#         uses: actions/upload-artifact@v2
-#         with:
-#          name: output
-#          path: output
+      - name: upload output view dir
+        uses: actions/upload-artifact@v2
+        with:
+         name: output-bom html to views
+         path: VIEW/public/ThroughHoleSegmentVersion3_v154/
       
