@@ -42,20 +42,16 @@ jobs:
          python -m pip install "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04/wxPython-4.1.1-cp38-cp38-linux_x86_64.whl"
           
       - name: Clone InteractiveHtmlBom creator
-        run: |
-          echo $(pwd)
-          ls -l
-          git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
-          echo $(pwd)
-          ls -l
+        run: git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
       
       - name: Create ibom.html
         run: |
-          CURRENTDIR=$(pwd)
-          echo $CURRENTDIR
-          ls -l
-          mkdir tempPublic
-          ls -l
-        #xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --help
+          CURR_DIR=$(pwd)
+          JSON_FILE="$CURR_DIR/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
+          echo $JSON_FILE
+          OUTPUT_DIR="$CURRDIR/VIEW/public/test0"
+          echo $OUTPUT_DIR
+          ARGS="--dark-mode --no-browser --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
+        # xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_FILE $OUTPUT_DIR  
       
       
