@@ -53,3 +53,7 @@ jobs:
          name: output-bom html to views
          path: VIEW/public/ThroughHoleSegmentVersion3_v154/
       
+      - name: download output
+        uses: actions/download-artifact@v2
+        with: 
+         name: output-bom html to views
