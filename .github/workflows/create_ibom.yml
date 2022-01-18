@@ -44,14 +44,20 @@ jobs:
       - name: Clone InteractiveHtmlBom creator
         run: git clone https://github.com/openscopeproject/InteractiveHtmlBom.git
       
+      # Move to root dir of repo and not "/home/runner/work/<repo_name>/<repo_name>"
+      - uses: actions/checkout@v2
+        with:
+          path: './'
+          
       - name: Create ibom.html
         run: 
-         ls $(pwd)
-         JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
-         echo $JSON_FILE
-         cat JSON_FILE
-         OUTPUT_DIR="$(pwd)/VIEW/public"
-         ls $OUTPUT_DIR
+         pwd
+         ls
+#          JSON_FILE="$(pwd)/BOMS/ThroughHoleSegmentVersion3_v154/ThroughHoleSegmentVersion3_v154.json"
+#          echo $JSON_FILE
+#          cat JSON_FILE
+#          OUTPUT_DIR="$(pwd)/VIEW/public"
+#          ls $OUTPUT_DIR
         # ls -l
         # ARGS="--dark-mode --no-browser --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
         # xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py $ARGS $JSON_FILE $OUTPUT_DIR  
