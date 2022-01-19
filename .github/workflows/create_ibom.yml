@@ -97,15 +97,9 @@ jobs:
           ls -l
           cat ibom.html
 
-#       - name: Deploy to GitHub Pages
-#         uses: JamesIves/github-pages-deploy-action@v4.2.2
-#         with:
-#           branch: gh-pages
-#           folder: docs
-#          clean: true
-
-
-#       - name: download output
-#         uses: actions/download-artifact@v2
-#         with: 
-#          name: output_bom_view_html
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: gh-pages
+          folder: docs
+          clean: true
