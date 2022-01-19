@@ -44,38 +44,43 @@ jobs:
         run: |
          ARGS="--layer-view FB --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
          JSON_PATH="*.json"
-         mkdir output
-         OUTPUT_PATH="$(pwd)/output"
+         OUTPUT_PATH="$(pwd)/docs"
+         ls -l
+         cd OUTPUT_PATH
+         ls -l
+         cat ibom.html
+         cd ..
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
          cd $OUTPUT_PATH
          ls -l
+         cat ibom.html
          cd ..
           
-      - name: upload html
-        uses: actions/upload-artifact@v2
-        with:
-         name: docs
-         path: output
+#       - name: upload html
+#         uses: actions/upload-artifact@v2
+#         with:
+#          name: docs
+#          path: output
 
 
-  deploy:
-    name: host on gh pages
-    runs-on: ubuntu-20.04
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
+#   deploy:
+#     name: host on gh pages
+#     runs-on: ubuntu-20.04
+#     needs: build
+#     steps:
+#       - uses: actions/checkout@v2
       
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: docs
+#       - name: Download build
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: docs
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.2.2
-        with:
-          branch: gh-pages
-          folder: docs
-          clean: true
+#       - name: Deploy to GitHub Pages
+#         uses: JamesIves/github-pages-deploy-action@v4.2.2
+#         with:
+#           branch: gh-pages
+#           folder: docs
+#           clean: true
 
 
 #       - name: download output
