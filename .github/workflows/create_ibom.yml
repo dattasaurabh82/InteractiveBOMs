@@ -46,7 +46,7 @@ jobs:
          JSON_PATH="*.json"
          OUTPUT_PATH="$(pwd)/docs"
          ls -l
-         cd OUTPUT_PATH
+         cd $OUTPUT_PATH
          ls -l
          cat ibom.html
          cd ..
