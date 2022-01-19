@@ -44,37 +44,15 @@ jobs:
         run: |
          ARGS="--layer-view FB --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
          JSON_PATH="*.json"
-         OUTPUT_PATH="$(pwd)/docs"
-         echo Listinng $(pwd) files:
-         ls -l
-         echo
-         echo Entering output path: $OUTPUT_PATH
-         echo ================================================
-         cd $OUTPUT_PATH
-         ls -l
-         echo 
-         echo Reading the old empty html file...
-         echo ================================================
-         cat ibom.html
-         cd ..
+         mkdir output
+         OUTPUT_PATH="$(pwd)/output"
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
-         echo
-         echo Entering output path again: $OUTPUT_PATH
-         echo ================================================
-         cd $OUTPUT_PATH
-         ls -l
-         echo
-         echo Reading the newly generated html file...
-         echo ================================================
-         echo
-         cat ibom.html
-         cd ..
           
       - name: upload html
         uses: actions/upload-artifact@v2
         with:
          name: html_file
-         path: docs
+         path: output
 
 
   deploy:
@@ -88,18 +66,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: html_file
-          path: docs
-      
-      - name: Check downloaded file
-        run: |
-          ls -l
-          cd docs
-          ls -l
-          cat ibom.html
-          cd ..
+          path: output
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
           branch: gh-pages
-          folder: docs
+          folder: .
