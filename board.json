@@ -2340,7 +2340,7 @@
         "footprint": "2_DIGIT_0.28\"",
         "layer": "F",
         "ref": "BOTTOM",
-        "val": "0.28"-2DIGIT-7SEGEMNT"
+        "val": "0.28\"-2DIGIT-7SEGEMNT"
         ,"extra_fields": { 
             "NAME": "BOTTOM"
         }
@@ -2498,7 +2498,7 @@
         "footprint": "2_DIGIT_0.28\"",
         "layer": "F",
         "ref": "TOP",
-        "val": "0.28"-2DIGIT-7SEGEMNT"
+        "val": "0.28\"-2DIGIT-7SEGEMNT"
         ,"extra_fields": { 
             "NAME": "TOP"
         }
