@@ -45,14 +45,19 @@ jobs:
          ARGS="--layer-view FB --hide-silkscreen --highlight-pin1 --no-blacklist-virtual"
          JSON_PATH="*.json"
          OUTPUT_PATH="$(pwd)/docs"
+         echo Listinng $(pwd) files:
          ls -l
+         echo Entering output path: $OUTPUT_PATH
          cd $OUTPUT_PATH
          ls -l
+         echo rReading the old empty html file...
          cat ibom.html
          cd ..
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
+         echo Entering output path again: $OUTPUT_PATH
          cd $OUTPUT_PATH
          ls -l
+         echo Reading the newly generated html file...
          cat ibom.html
          cd ..
           
