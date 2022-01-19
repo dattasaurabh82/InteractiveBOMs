@@ -47,45 +47,62 @@ jobs:
          OUTPUT_PATH="$(pwd)/docs"
          echo Listinng $(pwd) files:
          ls -l
+         echo
          echo Entering output path: $OUTPUT_PATH
+         echo ================================================
          cd $OUTPUT_PATH
          ls -l
-         echo rReading the old empty html file...
+         echo 
+         echo Reading the old empty html file...
+         echo ================================================
          cat ibom.html
          cd ..
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
+         echo
          echo Entering output path again: $OUTPUT_PATH
+         echo ================================================
          cd $OUTPUT_PATH
          ls -l
+         echo
          echo Reading the newly generated html file...
+         echo ================================================
+         echo
          cat ibom.html
          cd ..
           
-#       - name: upload html
-#         uses: actions/upload-artifact@v2
-#         with:
-#          name: docs
-#          path: output
+      - name: upload html
+        uses: actions/upload-artifact@v2
+        with:
+         name: html_file
+         path: docs
 
 
-#   deploy:
-#     name: host on gh pages
-#     runs-on: ubuntu-20.04
-#     needs: build
-#     steps:
-#       - uses: actions/checkout@v2
+  deploy:
+    name: host on gh pages
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
       
-#       - name: Download build
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: docs
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: html_file
+          path: docs
+      
+      - name: Check downloaded file
+        run: |
+          ls -l
+          cd docs
+          ls -l
+          cat ibom.html
 
 #       - name: Deploy to GitHub Pages
 #         uses: JamesIves/github-pages-deploy-action@v4.2.2
 #         with:
 #           branch: gh-pages
 #           folder: docs
-#           clean: true
+#          clean: true
 
 
 #       - name: download output
