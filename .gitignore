@@ -1,8 +1,4 @@
-.*.json
-!*.json
-
-.*.brd
-!*.brd
-
-.DS_Store
-
+.*
+!.*.json
+!.*.brd
+!.gitignore
