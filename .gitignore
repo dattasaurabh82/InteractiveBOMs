@@ -1,1 +1,7 @@
 .*
+!.*.json
+!.*.brd
+!.gitignore
+!.github/*
+
+
