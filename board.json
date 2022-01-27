@@ -3359,7 +3359,7 @@
         "footprint": "2_DIGIT_0.28\"",
         "layer": "F",
         "ref": "BOT",
-        "val": "0.28"-2DIGIT-7SEGEMNT"
+        "val": "0.28\"-2DIGIT-7SEGEMNT"
         ,"extra_fields": { 
             "NAME": "BOT"
             ,"VALUE": "0.28\"-2DIGIT-7SEGEMNT"
@@ -3645,7 +3645,7 @@
         "footprint": "2_DIGIT_0.28\"",
         "layer": "F",
         "ref": "TOP",
-        "val": "0.28"-2DIGIT-7SEGEMNT"
+        "val": "0.28\"-2DIGIT-7SEGEMNT"
         ,"extra_fields": { 
             "NAME": "TOP"
             ,"VALUE": "0.28\"-2DIGIT-7SEGEMNT"
