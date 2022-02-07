@@ -2,8 +2,10 @@
 
 ![build and publish](https://github.com/dattasaurabh82/InteractiveBOMs/actions/workflows/create_ibom.yml/badge.svg)
 
-### Note: 
+### Note:  
 Set up your own github pages ( create a branch `gh-pages` and it should use `/root` directory to pusblish to gh-pages )
+
+<img width="592" alt="Screenshot 2022-02-08 at 12 00 17 AM" src="https://user-images.githubusercontent.com/4619862/152824683-842287eb-daef-49f4-8fc2-d4c8547dbae3.png" style="border:2px solid white;vertical-align:middle;margin:0px 50px">
 
 ---
 
