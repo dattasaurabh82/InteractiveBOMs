@@ -2,7 +2,6 @@ name: Create i-BOM
 
 on:
   push:
-    branches: [ main ]
     paths:
       - 'board.json'
       - 'board.brd'
