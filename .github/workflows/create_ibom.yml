@@ -1,4 +1,4 @@
-name: Create BOM
+name: Create i-BOM
 
 on:
   push:
