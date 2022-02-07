@@ -1,4 +1,12 @@
 # InteractiveBOMs
+
+![build and publish](https://github.com/dattasaurabh82/InteractiveBOMs/actions/workflows/create_ibom.yml/badge.svg)
+
+### Note: 
+Set up your own github pages ( create a branch `gh-pages` and it should use `/root` directory to pusblish to gh-pages )
+
+---
+
 The purpose of this repository is to host the board's JSON file exported (using [brd2json](https://github.com/Funkenjaeger/brd2json) from my Fusion360 Electronics).
 
 _The Board's name and the JSON file's prefix name, doesn't matter._
@@ -12,4 +20,5 @@ It can be accessed here: http://current_ibom.dattasaurabh.com/output/ibom.html
 And I have a dedicated old phone for it near my soldering station, where if anything changes, I can refresh and get the new design. 
 ![PXL_20220119_105101144 PORTRAIT](https://user-images.githubusercontent.com/4619862/150786882-3e561709-9d1d-4950-b78c-a6ce47b46438.jpg)
 
-__Bonus tip__: My local repo of this, uses [gitomatic](https://github.com/muesli/gitomatic) to watch the folder and everytime I replace the .brd and .json files in there, it commits them to this remote repo and the generation of iBOM, followed by hosting of the html page, begins.  
+__Bonus tip__: My local repo of this, uses [gitomatic](https://github.com/muesli/gitomatic) to watch the folder and everytime I replace the .brd and .json files in there, it commits them to this remote repo and the generation of iBOM, followed by hosting of the html page, begins. 
+
