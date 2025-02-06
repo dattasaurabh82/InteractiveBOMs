@@ -22,7 +22,7 @@ jobs:
       - name: Update System and install sys necessities
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y software-properties-common xvfb 
+          sudo apt-get install -y software-properties-common xvfb libnotify4
           sudo apt-get install -y libsdl2-2.0-0
       
       - name: Set up Python 3.8
