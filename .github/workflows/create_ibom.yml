@@ -22,8 +22,7 @@ jobs:
       - name: Update System and install sys necessities
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y software-properties-common xvfb libnotify4
-          sudo apt-get install -y libsdl2-2.0-0
+          sudo apt-get install -y software-properties-common xvfb libnotify4 libsdl2-2.0-0
       
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
@@ -50,28 +49,54 @@ jobs:
          OUTPUT_PATH="$(pwd)/output"
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
           
-      - name: upload html
-        uses: actions/upload-artifact@v4
+      # - name: upload html
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #    name: html_file
+      #    path: output
+      - name: Configure Pages
+        run: |
+          # Create .nojekyll to bypass Jekyll processing
+          touch output/.nojekyll
+          # Copy the HTML file to index.html if it's not already named that
+          if [ -f output/ibom.html ]; then
+            cp output/ibom.html output/index.html
+          fi
+        
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-         name: html_file
-         path: output
+          path: output
 
 
   deploy:
-    name: host on gh pages
-    runs-on: ubuntu-20.04
+    name: Deploy to GitHub Pages
     needs: build
-    steps:
-      - uses: actions/checkout@v4
+    runs-on: ubuntu-20.04
+    # steps:
+    #   - uses: actions/checkout@v4
       
-      - name: Download build
-        uses: actions/download-artifact@v4
-        with:
-          name: html_file
-          path: output
+      # - name: Download build
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: html_file
+      #     path: output
 
+      # - name: Deploy to GitHub Pages
+      #   uses: JamesIves/github-pages-deploy-action@v4.2.2
+      #   with:
+      #     branch: gh-pages
+      #     folder: .
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.2.2
-        with:
-          branch: gh-pages
-          folder: .
+        id: deployment
+        uses: actions/deploy-pages@v4
