@@ -22,6 +22,29 @@ TODO: Update image of setup
 
 ### Setup your github for gh-pages
 
+In your GitHub repository `settings`, you need to configure GitHub Pages:
+
+1. Go to your repository's `Settings`
+2. In the left sidebar, click `Pages`
+3. Under `Build and deployment`:
+   - For `Source`, select `GitHub Actions`
+   - > Do not select `Deploy from a branch` since we're using the Actions workflow
+
+That's it! You don't need to configure anything else in the Pages settings. 
+
+The workflow we set up will handle everything:
+
+- Building the site (generating the iBOM HTML)
+- Creating the necessary artifacts
+- Deploying to GitHub Pages
+
+The first time you run the workflow, GitHub Pages will be automatically set up. 
+
+The URL where your site will be published will be shown in:
+- The workflow run output
+- Your repository's Pages settings
+- Usually in the format: `https://<username>.github.io/<repository>/`
+
 ### Generate board json
 
 _The Board's name and the JSON file's prefix name, doesn't matter._
