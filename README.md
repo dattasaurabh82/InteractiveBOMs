@@ -45,11 +45,19 @@ The URL where your site will be published will be shown in:
 - Your repository's Pages settings
 - Usually in the format: `https://<username>.github.io/<repository>/`
 
-### Generate board json
+### Generate board json (For Fusion 360 Electronics)
 
-_The Board's name and the JSON file's prefix name, doesn't matter._
+1. Go to the archived repo of [brd2json](https://github.com/Funkenjaeger/brd2json) and switch to eagle-branch 
+2. In Fusion 360 electronics, when you are in the PCB Layout, from the `Automation` tab, select the `ULP`
+3. When the pop-up window appears, select `Browse` abd select the `brd2json.ulp` (from where you have cloned the [brd2json](https://github.com/Funkenjaeger/brd2json) in your local system)
+4. It will run and give you the path of the exported `.brd` and the `.json` files
+5. Go there and copy them to this repo's root directory.
 
-### Push
+      > The Board's name and the JSON file's prefix name, doesn't matter. 
+      > But make sure that at any given time there's only one .brd and it's respective .json file in the root directory of the repo.
+
+6. Commit and Push and let the [automation](https://github.com/dattasaurabh82/InteractiveBOMs/blob/main/.github/workflows/create_ibom.yml) do it's magic. 
+
 
 ---
 
