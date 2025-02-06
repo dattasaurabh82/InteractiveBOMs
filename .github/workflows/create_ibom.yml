@@ -17,12 +17,12 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         
       - name: Update System and install sys necessities
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y software-properties-common xvfb 
+          sudo apt-get install -y software-properties-common xvfb libnotify4
           sudo apt-get install -y libsdl2-2.0-0
       
       - name: Set up Python 3.8
@@ -51,7 +51,7 @@ jobs:
          sudo xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python3 InteractiveHtmlBom/InteractiveHtmlBom/generate_interactive_bom.py --no-browser $ARGS $JSON_PATH --dest-dir $OUTPUT_PATH
           
       - name: upload html
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
          name: html_file
          path: output
@@ -62,10 +62,10 @@ jobs:
     runs-on: ubuntu-20.04
     needs: build
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Download build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: html_file
           path: output
