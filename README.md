@@ -12,13 +12,23 @@ So ultimately I can see the iBOM from another computer/mobile device/tablet near
 
 > Mine's at: [dattasaurabh82.github.io/InteractiveBOMs/](https://dattasaurabh82.github.io/InteractiveBOMs/)
 
+And I have a dedicated old phone for it near my soldering station, where if anything changes, I can refresh and get the new design. 
+
+TODO: Update image of setup
+
+---
+
 ## If you wanna clone and push to github to host yours ...
+
+### Setup your github for gh-pages
+
+### Generate board json
 
 _The Board's name and the JSON file's prefix name, doesn't matter._
 
+### Push
 
-And I have a dedicated old phone for it near my soldering station, where if anything changes, I can refresh and get the new design. 
-![PXL_20220119_105101144 PORTRAIT](https://user-images.githubusercontent.com/4619862/150786882-3e561709-9d1d-4950-b78c-a6ce47b46438.jpg)
+---
 
 ## Bonus tip
 
